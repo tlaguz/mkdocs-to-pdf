@@ -4,6 +4,7 @@ from mkdocs.config import config_options
 
 from .drivers.event_hook import EventHookHandler
 from .drivers.headless_chrome import HeadlessChromeDriver
+from .drivers.relaxedjs import RelaxedJSRenderer
 from .templates.template import Template
 
 
@@ -42,7 +43,9 @@ class Options(object):
 
         ('render_js', config_options.Type(bool, default=False)),
         ('headless_chrome_path',
-            config_options.Type(str, default='chromium-browser'))
+            config_options.Type(str, default='chromium-browser')),
+        ('relaxedjs_path',
+            config_options.Type(str, default=None)),
     )
 
     def __init__(self, local_config, config, logger: logging):
@@ -53,6 +56,7 @@ class Options(object):
         self.show_anchors = local_config['show_anchors']
 
         self.output_path = local_config.get('output_path', None)
+        self.theme_handler_path = local_config.get('theme_handler_path', None)
 
         # Author and Copyright
         self._author = local_config['author']
@@ -93,6 +97,9 @@ class Options(object):
         if local_config['render_js']:
             self.js_renderer = HeadlessChromeDriver.setup(
                 local_config['headless_chrome_path'], logger)
+
+        self.relaxed_js = RelaxedJSRenderer.setup(
+            local_config['relaxedjs_path'], logger)
 
         # Theming
         self.theme_name = config['theme'].name

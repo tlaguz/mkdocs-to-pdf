@@ -11,7 +11,7 @@ This plugin is inspired by [MkDocs PDF Export Plugin][mkdocs-pdf-export-plugin].
 ## Features
 
 * Cover and Table of Contents integrated in the PDF
-* Automatically numbers on heading(h1-h3).
+* Automatically numbers on heading (h1-h6).
 * Shift down sub-page headings level.
 * using [WeasyPrint][weasyprint].
 
@@ -181,12 +181,12 @@ plugins:
 
 * `toc_level`
 
-    Set the level of _Table of Content_. This value is enabled in the range of from `1` to `3`.  
+    Set the level of _Table of Content_. This value is enabled in the range of from `1` to `6`.
     **default**: `3`
 
 * `ordered_chapter_level`
 
-    Set the level of heading number addition. This value is enabled in the range of from `1` to `3`.  
+    Set the level of heading number addition. This value is enabled in the range of from `1` to `6`.
     **default**: `3`
 
 * `excludes_children`
@@ -243,6 +243,22 @@ plugins:
 >    --disable-gpu \
 >    --dump-dom \
 >    <ANY_SITE_URL(eg. 'https://google.com')>
+> ```
+
+* `relaxedjs_path`
+
+    Set the value to execute command of relaxed if you're using e.g. '[Mermaid](https://mermaid-js.github.io) diagrams and Headless Chrome is not working for you.
+    Require "ReLaXed" Javascript PDF renderer to be installed on your system. See: '[ReLaXed](https://github.com/RelaxedJS/ReLaXed)'.
+
+    Please use 'theme_handler_path' option to specify custom JS sources and CSS Stylesheets which covers your needs. E.g. for Material
+    theme it would be **material.py**. See: **mkdocs-with-pdf/mkdocs_with_pdf/themes/material.py** for implementation details.
+    **default**: `None`
+    _**since**: `v0.7.0`_
+
+> Install on your system:
+> ```
+> $ npm i -g relaxedjs
+> $ relaxed --version
 > ```
 
 ##### ... and more
