@@ -1,3 +1,16 @@
+# Important Notice
+
+This is a private fork of https://github.com/domWalters/mkdocs-to-pdf which hasn't yet published to PyPI. The domWalters' fork is a fork of the original https://github.com/orzih/mkdocs-with-pdf which seems to be abandoned.
+
+I created this fork to be able to use some fixes. You can use it if you want, but I recommend using the original one unless you know what you are doing. I don't guarantee that I will maintain this fork.
+
+To install this fork, you can use the following command:
+
+```bash
+pip install tlaguz.mkdocs-to-pdf
+```
+
+
 # PDF Generate Plugin for MkDocs
 
 [![PyPI version](https://img.shields.io/pypi/v/mkdocs-with-pdf.svg)](https://pypi.org/project/mkdocs-with-pdf)
